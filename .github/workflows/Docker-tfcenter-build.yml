@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p amd64
           curl -L -o amd64/app.tar.gz \
-          "http://2666v3.mc5173.cn:20000/share-fileManagement/tfcenter-linux-x86-v3.3.5.tar.gz?shareID=mqNbxcyzk8Yxhb5&path=%2fhome%2fsoftware%2ftf-software%2ftfcenter-service%2fv3.3.5%2ftfcenter-linux-x86-v3.3.5.tar.gz&sort=2"
+          "http://http://117.50.183.130:22280/share-fileManagement/tfcenter-linux-x86-v3.4.1.tar.gz?shareID=mqNbxcyzk8Yxhb5&path=%2fhome%2fsoftware%2ftf-software%2ftfcenter-service%2fv3.4.1%2ftfcenter-linux-x86-v3.4.1.tar.gz&sort=2"
           tar -xzvf ~/amd64/app.tar.gz -C ~/amd64
           ls -alh amd64
 
@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p arm64
           curl -L -o arm64/app.tar.gz \
-          "http://2666v3.mc5173.cn:20000/share-fileManagement/tfcenter-linux-arm-v3.3.5.tar.gz?shareID=mqNbxcyzk8Yxhb5&path=%2fhome%2fsoftware%2ftf-software%2ftfcenter-service%2fv3.3.5%2ftfcenter-linux-arm-v3.3.5.tar.gz&sort=2"
+          "http://117.50.183.130:22280/share-fileManagement/tfcenter-linux-arm-v3.4.1.tar.gz?shareID=mqNbxcyzk8Yxhb5&path=%2fhome%2fsoftware%2ftf-software%2ftfcenter-service%2fv3.4.1%2ftfcenter-linux-arm-v3.4.1.tar.gz&sort=2"
           tar -xzvf ~/arm64/app.tar.gz -C ~/arm64
           ls -alh arm64
           
