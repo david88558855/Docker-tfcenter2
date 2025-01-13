@@ -12,10 +12,10 @@ FROM base-${TARGETARCH}
 ARG TARGETARCH
 
 #拷贝文件至/app文件夹
-COPY ./${TARGETARCH}/netlink/ /app
+COPY ./${TARGETARCH}/tfcenter/ /app
 
 # 修改 app 文件夹内所有文件的执行权限
 RUN chmod -R +x /app/*
 
 # 容器启动时运行的命令
-ENTRYPOINT ["/app/netlink"]
+ENTRYPOINT ["/app/tfcenter64"]
