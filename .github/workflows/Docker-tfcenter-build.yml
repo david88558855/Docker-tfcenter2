@@ -2,6 +2,13 @@ name: Docker-tfcenter-build
 
 on:
   workflow_dispatch:
+    inputs:
+      amd64_url:
+        description: 'URL for amd64 binary download'
+        required: true
+      arm64_url:
+        description: 'URL for arm64 binary download'
+        required: true
 
 jobs:
   build-1: #流程1
@@ -23,14 +30,14 @@ jobs:
       - name: Download amd64 binary
         run: |
           mkdir -p amd64
-          curl -L -o amd64/app.tar.gz "http://xg.18999666.xyz:8088/webos/link/911014fa8a7044b688dafff7ba549b08/tfcenter-Linux-x86-3.4.2.tar"
+          curl -L -o amd64/app.tar.gz "${{ inputs.amd64_url }}"
           tar -xvf ./amd64/app.tar.gz -C ./amd64
           ls -alh amd64
 
       - name: Download arm64 binary
         run: |
           mkdir -p arm64
-          curl -L -o arm64/app.tar.gz "http://xg.18999666.xyz:8088/webos/link/8df2f4c51e664c618a22146a7100fee8/tfcenter-Linux-arm-3.4.2.tar"
+          curl -L -o arm64/app.tar.gz "${{ inputs.arm64_url }}"
           tar -xvf ./arm64/app.tar.gz -C ./arm64
           ls -alh arm64
           
@@ -40,11 +47,9 @@ jobs:
           username: ${{ secrets.DOCKER_REGISTRY_USER }}
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
           
-
           
       - name: Build and push Docker image
         run: docker buildx build --platform linux/arm64,linux/amd64 -t haoxuan8855/tfcenter:latest --push .
           
       - name: Logout from Docker Hub
         run: docker logout
- 
