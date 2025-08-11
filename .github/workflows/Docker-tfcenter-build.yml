@@ -9,6 +9,18 @@ on:
       arm64_url:
         description: 'URL for arm64 binary download'
         required: true
+env:
+  #仓库云地址 例如 registry.**.aliyuncs.com
+  DOCKER_REGISTRY: "${{ secrets.DOCKER_REGISTRY }}" 
+
+  #仓库名字 
+  DOCKER_NAMESPACE: "${{ secrets.DOCKER_NAMESPACE }}"  
+
+  #仓库账户 例如 abc@email.com
+  DOCKER_REGISTRY_USER: "${{ secrets.DOCKER_REGISTRY_USER }}"
+
+  #仓库密码 
+  DOCKER_REGISTRY_PASSWORD: "${{ secrets.DOCKER_REGISTRY_PASSWORD }}"
 
 jobs:
   build-1: #流程1
