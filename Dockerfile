@@ -12,10 +12,13 @@ FROM base-${TARGETARCH}
 ARG TARGETARCH
 
 #拷贝文件至/app文件夹
-COPY ./${TARGETARCH}/tfcenter/ /app
+COPY ./${TARGETARCH}/tfcenter/ /app/tfcenter/
 
 # 修改 app 文件夹内所有文件的执行权限
 RUN chmod -R +x /app/*
 
+# 设置工作目录 /app/tfcenter
+WORKDIR /app/tfcenter
+
 # 容器启动时运行的命令
-ENTRYPOINT ["/app/tfcenter64"]
+ENTRYPOINT ["/app/tfcenter/tfcenter64"]
