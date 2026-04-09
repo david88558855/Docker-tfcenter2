@@ -44,15 +44,15 @@ jobs:
       - name: Download amd64 binary
         run: |
           mkdir -p amd64
-          curl -L -o amd64/app.tar.gz "${{ inputs.amd64_url }}"
-          tar -xvf ./amd64/app.tar.gz -C ./amd64
+          curl -L -o amd64/app.tar "${{ inputs.amd64_url }}"
+          tar -xvf ./amd64/app.tar -C ./amd64
           ls -alh amd64
 
       - name: Download arm64 binary
         run: |
           mkdir -p arm64
-          curl -L -o arm64/app.tar.gz "${{ inputs.arm64_url }}"
-          tar -xvf ./arm64/app.tar.gz -C ./arm64
+          curl -L -o arm64/app.tar "${{ inputs.arm64_url }}"
+          tar -xvf ./arm64/app.tar -C ./arm64
           ls -alh arm64
           
       - name: Login to Docker Hub
